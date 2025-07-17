@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yousef Professional Tailor</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="/placeholder.svg" type="image/svg+xml">
+</head>
+<body class="min-h-screen bg-white">
+    <header class="bg-slate-900 text-white sticky top-0 z-50">
+        <div class="container mx-auto px-4 py-4">
+            <div class="flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-amber-400">
+                        <path d="M4.4 14.6l7.6-7.6 1.4 1.4-7.6 7.6-1.4-1.4z"/>
+                        <path d="M12 10V4H4"/>
+                        <path d="M10 12v8h8"/>
+                        <path d="M18.6 5.4l-1.4-1.4L14 8 15.4 9.4 18.6 5.4z"/>
+                        <path d="M5.4 18.6L4 20l1.4 1.4L9.4 18l-1.4-1.4z"/>
+                    </svg>
+                    <h1 class="text-2xl font-bold">Yousef Professional Tailor</h1>
+                </div>
+                <nav class="hidden md:flex space-x-6">
+                    <a href="#home" class="hover:text-amber-400 transition-colors">Home</a>
+                    <a href="#about" class="hover:text-amber-400 transition-colors">About</a>
+                    <a href="#services" class="hover:text-amber-400 transition-colors">Services</a>
+                    <a href="#gallery" class="hover:text-amber-400 transition-colors">Gallery</a>
+                    <a href="#contact" class="hover:text-amber-400 transition-colors">Contact</a>
+                </nav>
+                <button class="btn bg-amber-600 hover:bg-amber-700 text-white">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 mr-2">
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-1.13 2.15L7 11a17 17 0 0 0 6 6l1.25-1.37a2 2 0 0 1 2.15-1.13 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                    </svg>
+                    Call Now
+                </button>
+                <button id="mobile-menu-button" class="md:hidden text-white focus:outline-none">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <div id="mobile-menu" class="md:hidden bg-slate-800 hidden">
+            <nav class="flex flex-col items-center py-4 space-y-4">
+                <a href="#home" class="block py-2 hover:text-amber-400 transition-colors">Home</a>
+                <a href="#about" class="block py-2 hover:text-amber-400 transition-colors">About</a>
+                <a href="#services" class="block py-2 hover:text-amber-400 transition-colors">Services</a>
+                <a href="#gallery" class="block py-2 hover:text-amber-400 transition-colors">Gallery</a>
+                <a href="#contact" class="block py-2 hover:text-amber-400 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="bg-gradient-to-br from-slate-50 to-slate-100 py-20">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6">
+                    <span class="badge bg-amber-100 text-amber-800">Professional Tailoring Services</span>
+                    <h1 class="text-4xl md:text-6xl font-bold text-slate-900 leading-tight">
+                        Expert Tailoring & Alterations
+                    </h1>
+                    <p class="text-xl text-slate-600 leading-relaxed">
+                        With over 20 years of experience, Yousef Professional Tailor provides exceptional custom tailoring and
+                        alteration services. Perfect fit, every time.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <button class="btn btn-lg bg-slate-900 hover:bg-slate-800">
+                            Book Appointment
+                        </button>
+                        <button class="btn btn-lg btn-outline border-slate-300 bg-transparent">
+                            View Services
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-6 pt-4">
+                        <div class="flex items-center space-x-1">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 fill-amber-400 text-amber-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 fill-amber-400 text-amber-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 fill-amber-400 text-amber-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 fill-amber-400 text-amber-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 fill-amber-400 text-amber-400"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+                        </div>
+                        <span class="text-slate-600">500+ Happy Customers</span>
+                    </div>
+                </div>
+                <div class="relative">
+                    <img src="/placeholder.svg?height=600&width=500" alt="Professional tailor at work" width="500" height="600" class="rounded-lg shadow-2xl">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-6 rounded-lg shadow-lg">
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-amber-600"><path d="M11 15h2a3 3 0 1 0-3-3V7a3 3 0 1 0-3 3h2"/><path d="M12 7v6"/><path d="M15 7v3a3 3 0 1 1-3 3h-2"/></svg>
+                            <div>
+                                <p class="font-semibold text-slate-900">20+ Years</p>
+                                <p class="text-sm text-slate-600">Experience</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center space-y-6">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">About Yousef Professional Tailor</h2>
+                <p class="text-lg text-slate-600 leading-relaxed">
+                    Established in 2003, Yousef Professional Tailor has been serving the community with exceptional tailoring
+                    and alteration services. Our commitment to quality craftsmanship and attention to detail has made us the
+                    trusted choice for custom clothing and alterations.
+                </p>
+                <div class="grid md:grid-cols-3 gap-8 pt-8">
+                    <div class="text-center">
+                        <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-amber-600">
+                                <path d="M4.4 14.6l7.6-7.6 1.4 1.4-7.6 7.6-1.4-1.4z"/>
+                                <path d="M12 10V4H4"/>
+                                <path d="M10 12v8h8"/>
+                                <path d="M18.6 5.4l-1.4-1.4L14 8 15.4 9.4 18.6 5.4z"/>
+                                <path d="M5.4 18.6L4 20l1.4 1.4L9.4 18l-1.4-1.4z"/>
+                            </svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-900 mb-2">Expert Craftsmanship</h3>
+                        <p class="text-slate-600">Precision tailoring with attention to every detail</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-amber-600"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-900 mb-2">Quick Turnaround</h3>
+                        <p class="text-slate-600">Fast and reliable service without compromising quality</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="bg-amber-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-8 w-8 text-amber-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                        </div>
+                        <h3 class="font-semibold text-slate-900 mb-2">Personal Service</h3>
+                        <p class="text-slate-600">One-on-one consultation for the perfect fit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Our Services</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    From custom tailoring to quick alterations, we offer comprehensive clothing services to meet all your
+                    needs.
+                </p>
+            </div>
+            <div id="services-container" class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center space-y-4 mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-slate-900">Our Work</h2>
+                <p class="text-lg text-slate-600 max-w-2xl mx-auto">
+                    Take a look at some of our finest work and see the quality craftsmanship that sets us apart.
+                </p>
+            </div>
+            <div id="gallery-container" class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+        </div>
+    </section>
+
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-12">
+                <div class="space-y-6">
+                    <h2 class="text-3xl md:text-4xl font-bold">Get In Touch</h2>
+                    <p class="text-slate-300 text-lg">
+                        Ready to experience professional tailoring? Contact us today to schedule your consultation or discuss
+                        your alteration needs.
+                    </p>
+                    <div class="space-y-4">
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-amber-400"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+                            <div>
+                                <p class="font-semibold">Address</p>
+                                <p class="text-slate-300">123 Main Street, Downtown, City 12345</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-amber-400">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.79 19.79 0 0 1 2 4.18 2 2 0 0 1 4.18 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-1.13 2.15L7 11a17 17 0 0 0 6 6l1.25-1.37a2 2 0 0 1 2.15-1.13 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <div>
+                                <p class="font-semibold">Phone</p>
+                                <p class="text-slate-300">(555) 123-4567</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-amber-400"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                            <div>
+                                <p class="font-semibold">Email</p>
+                                <p class="text-slate-300">info@youseftailor.com</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center space-x-3">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-amber-400"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                            <div>
+                                <p class="font-semibold">Hours</p>
+                                <p class="text-slate-300">Mon-Fri: 9AM-7PM, Sat: 9AM-5PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-slate-800 p-8 rounded-lg">
+                    <h3 class="text-xl font-semibold mb-6">Schedule Appointment</h3>
+                    <form class="space-y-4">
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <input
+                                type="text"
+                                placeholder="First Name"
+                                class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white placeholder-slate-400"
+                            />
+                            <input
+                                type="text"
+                                placeholder="Last Name"
+                                class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white placeholder-slate-400"
+                            />
+                        </div>
+                        <input
+                            type="email"
+                            placeholder="Email Address"
+                            class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white placeholder-slate-400"
+                        />
+                        <input
+                            type="tel"
+                            placeholder="Phone Number"
+                            class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white placeholder-slate-400"
+                        />
+                        <select class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white">
+                            <option>Select Service</option>
+                            <option>Custom Tailoring</option>
+                            <option>Alterations</option>
+                            <option>Formal Wear</option>
+                            <option>Repairs</option>
+                        </select>
+                        <textarea
+                            placeholder="Additional Details"
+                            rows="4"
+                            class="w-full p-3 rounded bg-slate-700 border border-slate-600 text-white placeholder-slate-400"
+                        ></textarea>
+                        <button type="submit" class="btn w-full bg-amber-600 hover:bg-amber-700">Schedule Appointment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-950 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="flex items-center space-x-2 mb-4 md:mb-0">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-400">
+                        <path d="M4.4 14.6l7.6-7.6 1.4 1.4-7.6 7.6-1.4-1.4z"/>
+                        <path d="M12 10V4H4"/>
+                        <path d="M10 12v8h8"/>
+                        <path d="M18.6 5.4l-1.4-1.4L14 8 15.4 9.4 18.6 5.4z"/>
+                        <path d="M5.4 18.6L4 20l1.4 1.4L9.4 18l-1.4-1.4z"/>
+                    </svg>
+                    <span class="text-lg font-semibold">Yousef Professional Tailor</span>
+                </div>
+                <p class="text-slate-400 text-sm">
+                    © <span id="current-year"></span> Yousef Professional Tailor. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
