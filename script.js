@@ -1,121 +1,262 @@
-document.addEventListener('DOMContentLoaded', () => {
-    // Data for dynamic sections
-    const servicesData = [
-        {
-            title: "Custom Tailoring",
-            description: "Bespoke suits, shirts, and formal wear tailored to your exact measurements",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-600">
-                      <path d="M4.4 14.6l7.6-7.6 1.4 1.4-7.6 7.6-1.4-1.4z"/>
-                      <path d="M12 10V4H4"/>
-                      <path d="M10 12v8h8"/>
-                      <path d="M18.6 5.4l-1.4-1.4L14 8 15.4 9.4 18.6 5.4z"/>
-                      <path d="M5.4 18.6L4 20l1.4 1.4L9.4 18l-1.4-1.4z"/>
-                   </svg>`,
-            price: "Starting from $200",
-        },
-        {
-            title: "Alterations",
-            description: "Professional alterations for all types of clothing - hemming, taking in, letting out",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-600"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07L9.5 5.5"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07L13.5 18.5"/></svg>`, // Using a common 'Shirt' icon from a general icon set
-            price: "Starting from $15",
-        },
-        {
-            title: "Formal Wear",
-            description: "Wedding suits, tuxedos, and special occasion attire",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-600"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
-            price: "Starting from $300",
-        },
-        {
-            title: "Repairs",
-            description: "Expert clothing repairs, zipper replacement, and restoration services",
-            icon: `<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-6 w-6 text-amber-600"><circle cx="12" cy="12" r="10"/><path d="M11 15h2a3 3 0 1 0-3-3V7a3 3 0 1 0-3 3h2"/><path d="M12 7v6"/><path d="M15 7v3a3 3 0 1 1-3 3h-2"/></svg>`,
-            price: "Starting from $10",
-        },
-    ];
+// Custom JavaScript for Yousef Professional Tailor
 
-    const galleryImagesData = [
-        { src: "/placeholder.svg?height=300&width=400", alt: "Custom suit fitting" },
-        { src: "/placeholder.svg?height=300&width=400", alt: "Tailoring workspace" },
-        { src: "/placeholder.svg?height=300&width=400", alt: "Finished alterations" },
-        { src: "/placeholder.svg?height=300&width=400", alt: "Wedding suit" },
-        { src: "/placeholder.svg?height=300&width=400", alt: "Professional alterations" },
-        { src: "/placeholder.svg?height=300&width=400", alt: "Custom shirts" },
-    ];
+document.addEventListener("DOMContentLoaded", () => {
+  // Smooth scrolling for navigation links
+  const navLinks = document.querySelectorAll('a[href^="#"]')
+  navLinks.forEach((link) => {
+    link.addEventListener("click", function (e) {
+      e.preventDefault()
+      const targetId = this.getAttribute("href")
+      const targetSection = document.querySelector(targetId)
 
-    // Populate Services Section
-    const servicesContainer = document.getElementById('services-container');
-    if (servicesContainer) {
-        servicesData.forEach(service => {
-            const serviceCard = document.createElement('div');
-            serviceCard.className = 'card hover:shadow-lg transition-shadow';
-            serviceCard.innerHTML = `
-                <div class="card-content p-6">
-                    <div class="bg-amber-100 w-12 h-12 rounded-lg flex items-center justify-center mb-4">
-                        ${service.icon}
-                    </div>
-                    <h3 class="font-semibold text-slate-900 mb-2">${service.title}</h3>
-                    <p class="text-slate-600 text-sm mb-4">${service.description}</p>
-                    <p class="font-semibold text-amber-600">${service.price}</p>
-                </div>
-            `;
-            servicesContainer.appendChild(serviceCard);
-        });
+      if (targetSection) {
+        const headerHeight = document.querySelector(".navbar").offsetHeight
+        const targetPosition = targetSection.offsetTop - headerHeight
+
+        window.scrollTo({
+          top: targetPosition,
+          behavior: "smooth",
+        })
+      }
+    })
+  })
+
+  // Active navigation highlighting
+  function updateActiveNav() {
+    const sections = document.querySelectorAll("section[id]")
+    const navLinks = document.querySelectorAll(".navbar-nav .nav-link")
+
+    let current = ""
+    const headerHeight = document.querySelector(".navbar").offsetHeight
+
+    sections.forEach((section) => {
+      const sectionTop = section.offsetTop - headerHeight - 100
+      const sectionHeight = section.offsetHeight
+
+      if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+        current = section.getAttribute("id")
+      }
+    })
+
+    navLinks.forEach((link) => {
+      link.classList.remove("active")
+      if (link.getAttribute("href") === `#${current}`) {
+        link.classList.add("active")
+      }
+    })
+  }
+
+  // Update active nav on scroll
+  window.addEventListener("scroll", updateActiveNav)
+
+  // Initial call
+  updateActiveNav()
+
+  // Fade in animation on scroll
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px",
+  }
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible")
+      }
+    })
+  }, observerOptions)
+
+  // Add fade-in class to elements and observe them
+  const animateElements = document.querySelectorAll(".card, .feature-icon, .gallery-item, .contact-info > div")
+  animateElements.forEach((el) => {
+    el.classList.add("fade-in")
+    observer.observe(el)
+  })
+
+  // Form handling
+  const appointmentForm = document.getElementById("appointmentForm")
+  if (appointmentForm) {
+    appointmentForm.addEventListener("submit", function (e) {
+      e.preventDefault()
+
+      // Get form data
+      const formData = new FormData(this)
+      const submitBtn = this.querySelector('button[type="submit"]')
+      const originalText = submitBtn.textContent
+
+      // Show loading state
+      submitBtn.classList.add("btn-loading")
+      submitBtn.disabled = true
+
+      // Simulate form submission (replace with actual form handling)
+      setTimeout(() => {
+        // Reset form
+        this.reset()
+
+        // Reset button
+        submitBtn.classList.remove("btn-loading")
+        submitBtn.disabled = false
+        submitBtn.textContent = "Appointment Scheduled!"
+        submitBtn.classList.remove("btn-warning")
+        submitBtn.classList.add("btn-success")
+
+        // Reset button after 3 seconds
+        setTimeout(() => {
+          submitBtn.textContent = originalText
+          submitBtn.classList.remove("btn-success")
+          submitBtn.classList.add("btn-warning")
+        }, 3000)
+
+        // Show success message
+        showNotification("Appointment request submitted successfully! We will contact you soon.", "success")
+      }, 2000)
+    })
+  }
+
+  // Gallery lightbox effect (simple version)
+  const galleryItems = document.querySelectorAll(".gallery-item")
+  galleryItems.forEach((item) => {
+    item.addEventListener("click", function () {
+      const img = this.querySelector("img")
+      const modal = createImageModal(img.src, img.alt)
+      document.body.appendChild(modal)
+
+      // Show modal
+      setTimeout(() => {
+        modal.classList.add("show")
+      }, 10)
+    })
+  })
+
+  // Call Now button functionality
+  const callButtons = document.querySelectorAll('.btn:contains("Call Now")')
+  callButtons.forEach((btn) => {
+    if (btn.textContent.includes("Call Now")) {
+      btn.addEventListener("click", () => {
+        window.location.href = "tel:+15551234567"
+      })
     }
+  })
 
-    // Populate Gallery Section
-    const galleryContainer = document.getElementById('gallery-container');
-    if (galleryContainer) {
-        galleryImagesData.forEach(image => {
-            const galleryItem = document.createElement('div');
-            galleryItem.className = 'relative group overflow-hidden rounded-lg';
-            galleryItem.innerHTML = `
-                <img
-                    src="${image.src}"
-                    alt="${image.alt}"
-                    width="400"
-                    height="300"
-                    class="w-full h-64 object-cover transition-transform group-hover:scale-105"
-                />
-                <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-opacity flex items-center justify-center">
-                    <p class="text-white font-semibold opacity-0 group-hover:opacity-100 transition-opacity">
-                        ${image.alt}
-                    </p>
-                </div>
-            `;
-            galleryContainer.appendChild(galleryItem);
-        });
+  // Mobile menu close on link click
+  const mobileNavLinks = document.querySelectorAll(".navbar-nav .nav-link")
+  const navbarCollapse = document.querySelector(".navbar-collapse")
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener("click", () => {
+      if (navbarCollapse.classList.contains("show")) {
+        const bsCollapse = new window.bootstrap.Collapse(navbarCollapse)
+        bsCollapse.hide()
+      }
+    })
+  })
+})
+
+// Utility function to create image modal
+function createImageModal(src, alt) {
+  const modal = document.createElement("div")
+  modal.className = "modal fade"
+  modal.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    `
+
+  modal.innerHTML = `
+        <div style="position: relative; max-width: 90%; max-height: 90%;">
+            <img src="${src}" alt="${alt}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
+            <button onclick="this.closest('.modal').remove()" 
+                    style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 30px; cursor: pointer;">
+                ×
+            </button>
+        </div>
+    `
+
+  // Close on background click
+  modal.addEventListener("click", (e) => {
+    if (e.target === modal) {
+      modal.remove()
     }
+  })
 
-    // Set current year in footer
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
+  return modal
+}
+
+// Utility function to show notifications
+function showNotification(message, type = "info") {
+  const notification = document.createElement("div")
+  notification.className = `alert alert-${type === "success" ? "success" : "info"} alert-dismissible fade show`
+  notification.style.cssText = `
+        position: fixed;
+        top: 100px;
+        right: 20px;
+        z-index: 9999;
+        min-width: 300px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    `
+
+  notification.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" onclick="this.parentElement.remove()"></button>
+    `
+
+  document.body.appendChild(notification)
+
+  // Auto remove after 5 seconds
+  setTimeout(() => {
+    if (notification.parentElement) {
+      notification.remove()
     }
+  }, 5000)
+}
 
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('nav a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+// Navbar background change on scroll
+window.addEventListener("scroll", () => {
+  const navbar = document.querySelector(".navbar")
+  if (window.scrollY > 50) {
+    navbar.style.backgroundColor = "rgba(30, 41, 59, 0.95)"
+    navbar.style.backdropFilter = "blur(10px)"
+  } else {
+    navbar.style.backgroundColor = "var(--primary-color)"
+    navbar.style.backdropFilter = "none"
+  }
+})
 
-            document.querySelector(this.getAttribute('href')).scrollIntoView({
-                behavior: 'smooth'
-            });
+// Form validation
+function validateForm(form) {
+  const inputs = form.querySelectorAll("input[required], select[required]")
+  let isValid = true
 
-            // Close mobile menu if open
-            const mobileMenu = document.getElementById('mobile-menu');
-            if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
-                mobileMenu.classList.add('hidden');
-            }
-        });
-    });
-
-    // Mobile menu toggle
-    const mobileMenuButton = document.getElementById('mobile-menu-button');
-    const mobileMenu = document.getElementById('mobile-menu');
-
-    if (mobileMenuButton && mobileMenu) {
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+  inputs.forEach((input) => {
+    if (!input.value.trim()) {
+      input.classList.add("is-invalid")
+      isValid = false
+    } else {
+      input.classList.remove("is-invalid")
+      input.classList.add("is-valid")
     }
-});
+  })
+
+  return isValid
+}
+
+// Email validation
+function validateEmail(email) {
+  const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+  return re.test(email)
+}
+
+// Phone validation
+function validatePhone(phone) {
+  const re = /^[+]?[1-9][\d]{0,15}$/
+  return re.test(phone.replace(/\s/g, ""))
+}
