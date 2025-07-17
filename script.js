@@ -67,7 +67,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }, observerOptions)
 
   // Add fade-in class to elements and observe them
-  const animateElements = document.querySelectorAll(".card, .feature-icon, .gallery-item, .contact-info > div")
+  // Modified to include .gallery-item-wrapper
+  const animateElements = document.querySelectorAll(".card, .feature-icon, .gallery-item-wrapper, .contact-info > div")
   animateElements.forEach((el) => {
     el.classList.add("fade-in")
     observer.observe(el)
@@ -128,15 +129,15 @@ document.addEventListener("DOMContentLoaded", () => {
     })
   })
 
-  // Call Now button functionality
-  const callButtons = document.querySelectorAll('.btn:contains("Call Now")')
-  callButtons.forEach((btn) => {
-    if (btn.textContent.includes("Call Now")) {
-      btn.addEventListener("click", () => {
-        window.location.href = "tel:+15551234567"
-      })
-    }
-  })
+  // Call Now button functionality - Corrected selector
+  const headerCallNowBtn = document.getElementById('headerCallNowBtn');
+  if (headerCallNowBtn) {
+    headerCallNowBtn.addEventListener("click", () => {
+      const callModal = new bootstrap.Modal(document.getElementById('callNowModal'));
+      callModal.show();
+    });
+  }
+
 
   // Mobile menu close on link click
   const mobileNavLinks = document.querySelectorAll(".navbar-nav .nav-link")
@@ -150,7 +151,42 @@ document.addEventListener("DOMContentLoaded", () => {
       }
     })
   })
-})
+
+  // Gallery "View More" functionality
+  const galleryItemWrappers = document.querySelectorAll('#galleryContainer .gallery-item-wrapper');
+  const viewMoreBtn = document.getElementById('viewMoreGalleryBtn');
+  const itemsToShowInitially = 6; // Number of images to show at first
+  const itemsPerLoad = 3; // Number of additional images to show per click
+
+  // Hide items beyond the initial count
+  for (let i = itemsToShowInitially; i < galleryItemWrappers.length; i++) {
+    galleryItemWrappers[i].classList.add('d-none');
+  }
+
+  // Show/hide view more button based on total items
+  if (galleryItemWrappers.length <= itemsToShowInitially) {
+    viewMoreBtn.style.display = 'none';
+  }
+
+  let currentlyShownItems = itemsToShowInitially;
+
+  viewMoreBtn.addEventListener('click', () => {
+    const nextBatchEnd = Math.min(currentlyShownItems + itemsPerLoad, galleryItemWrappers.length);
+
+    for (let i = currentlyShownItems; i < nextBatchEnd; i++) {
+      galleryItemWrappers[i].classList.remove('d-none');
+      // Re-observe for fade-in animation if it's a newly visible element
+      observer.observe(galleryItemWrappers[i]);
+    }
+
+    currentlyShownItems = nextBatchEnd;
+
+    // Hide the button if all items are shown
+    if (currentlyShownItems >= galleryItemWrappers.length) {
+      viewMoreBtn.style.display = 'none';
+    }
+  });
+});
 
 // Utility function to create image modal
 function createImageModal(src, alt) {
@@ -174,7 +210,7 @@ function createImageModal(src, alt) {
   modal.innerHTML = `
         <div style="position: relative; max-width: 90%; max-height: 90%;">
             <img src="${src}" alt="${alt}" style="max-width: 100%; max-height: 100%; object-fit: contain;">
-            <button onclick="this.closest('.modal').remove()" 
+            <button onclick="this.closest('.modal').remove()"
                     style="position: absolute; top: -40px; right: 0; background: none; border: none; color: white; font-size: 30px; cursor: pointer;">
                 ×
             </button>
